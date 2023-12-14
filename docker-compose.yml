@@ -1,0 +1,20 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgres://swapn:postgres@db:5432/todo_app_development
+  db:
+    image: "postgres:16.1"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: swapn
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: todo_app_development
+volumes:
+  postgres_data:
