@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rails-app
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: <your-git-repo-url>
+    path: /path/to/kubernetes/manifests
+    targetRevision: HEAD
+  project: default

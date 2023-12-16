@@ -1,0 +1,22 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: rails-app-build
+spec:
+  workspaces:
+    - name: source
+  steps:
+    - name: install-dependencies
+      image: ruby: 3.0.2
+      workingDir: /workspace/source
+      script: |
+        bundle install
+    - name: build
+      image: ruby:3.0.2
+      workingDir: /workspace/source
+      script: |
+        bundle exec rake assets:precompile
+  resources:
+    inputs:
+      - name: source
+        resource: todo-Rails-ruby

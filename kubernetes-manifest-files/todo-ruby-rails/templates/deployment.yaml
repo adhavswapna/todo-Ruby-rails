@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ruby-on-rails
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ruby-on-rail
+  template:
+    metadata:
+      labels:
+        app: ruby-on-rail
+    spec:
+      containers:
+      - name: todo-ruby
+        image: swapnaswapna/todo-ruby-rails
+        ports:
+        - containerPort: 3001
+

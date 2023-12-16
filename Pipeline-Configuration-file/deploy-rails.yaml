@@ -1,0 +1,17 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: rails-app-deploy
+spec:
+  workspaces:
+    - name: source
+  steps:
+    - name: deploy
+      image: ruby-on-rails-79f54768f8-6bck8
+      workingDir: /workspace/source
+      script: |
+        kubectl apply -f k8s/
+  resources:
+    inputs:
+      - name: source
+        resource: rails-app-git

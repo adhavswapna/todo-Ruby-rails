@@ -1,0 +1,28 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Pipeline
+metadata:
+  name: rails-app-pipeline
+spec:
+  resources:
+  - name: todo-Ruby-rails
+    type: git
+  - name: todo-ruby-rails
+    type: image
+  tasks:
+  - name: rails-app-build
+    taskRef:
+      name: rails-app-build
+    resources:
+      inputs:
+      - name: source
+        resource: rails-app-git
+      outputs:
+      - name: image
+        resource: rails-app-image
+  - name: rails-app-deploy
+    taskRef:
+      name: rails-app-deploy
+    resources:
+      inputs:
+      - name: input-image
+        resource: rails-app-image

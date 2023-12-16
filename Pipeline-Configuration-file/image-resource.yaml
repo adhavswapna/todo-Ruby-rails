@@ -1,0 +1,9 @@
+apiVersion: tekton.dev/v1alpha1
+kind: ImageResource
+metadata:
+  name: todo-ruby-rails
+spec:
+  type: image
+  params:
+  - name: url
+    value: https://hub.docker.com/repository/docker/swapnaswapna/todo-ruby-rails

@@ -189,13 +189,7 @@ bash
 rails server
 
 Visit http://localhost:3000 in your web browser to see and interact with your ToDo app.
-
-That's it! You've created a simple Ruby on Rails ToDo app with PostgreSQL. Feel free to customize and expand upon this basic setup as needed.
-User
-No view template for interactive request
-ChatGPT
-
-I apologize for any confusion. It seems I provided a basic setup, and you may need to customize the views according to your preferences. Here's an example of how you can structure your views:
+zucture your views:
 Views for Todos
 1. app/views/todos/index.html.erb
 
@@ -386,7 +380,7 @@ For example, a TodosController#index action defined in app/controllers/todos_con
 However, if this controller is an API endpoint responding with 204 (No Content), which does not require a view template because it doesn't serve an HTML response, then this error will occur when trying to access it with a browser. In this particular scenario, you can ignore this error.
 
 You can find more about view template rendering conventions in the Rails Guides on Layouts and Rendering in Rails.
-ChatGPT
+
 
 It seems like there's an issue with the index action in your TodosController not having a corresponding view template. Let's make sure you have the index action defined correctly in your controller and that you have the corresponding view template.
 
@@ -676,4 +670,17 @@ Open your config/secrets.yml file and make sure that the production section has 
 rails restart
 
 rails s -p 3001
+<<<<<<< HEAD
 >>>>>>> 807d1dc (my second commit)
+=======
+
+Tekton commands
+kubectl apply -f rails-app-resource.yaml
+kubectl apply -f postgres-db-resource.yaml
+kubectl apply -f rails-build-task.yaml
+kubectl apply -f rails-test-task.yaml
+kubectl apply -f rails-deploy-task.yaml
+kubectl apply -f rails-pipeline.yaml
+
+tkn pipeline start rails-pipeline -r rails-app=rails-app -r postgres-db=postgres-db
+>>>>>>> a77b203 (my second commit)

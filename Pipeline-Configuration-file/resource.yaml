@@ -1,0 +1,10 @@
+apiVersion: tekton.dev/v1beta1
+kind: GitResource
+metadata:
+  name: todo-Ruby-rails
+spec:
+  params:
+    - name: revision
+      value: main
+    - name: url
+      value: https://github.com/adhavswapna/todo-Ruby-rails
