@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 Creating a simple Ruby on Rails ToDo app with PostgreSQL involves several steps. Here's a step-by-step guide:
 Step 1: Install Ruby on Rails
 
