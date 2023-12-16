@@ -513,7 +513,7 @@ Open your config/secrets.yml file and make sure that the production section has 
     Generate a Secret Key:
     Run the following command in your terminal to generate a new secret key:
 
-    bash
+
 
 rails secret
 
@@ -533,10 +533,15 @@ rails s -p 3001
 
 Tekton commands
 kubectl apply -f rails-app-resource.yaml
+
 kubectl apply -f postgres-db-resource.yaml
+
 kubectl apply -f rails-build-task.yaml
+
 kubectl apply -f rails-test-task.yaml
+
 kubectl apply -f rails-deploy-task.yaml
+
 kubectl apply -f rails-pipeline.yaml
 
 tkn pipeline start rails-pipeline -r rails-app=rails-app -r postgres-db=postgres-db
